@@ -7,12 +7,11 @@
 
 The idea here is simple, create a composable Uniswap V2 pair that gives liquidity providers more control over their funds. The largest barrier to entry for new AMMs is lack of liquidity. Maintaining a competitive rate is almost impossible because slippage is high relative to competition. 
 
-$kRoot = \sqrt{actualInvariant}$
+<!-- $kRoot = \sqrt{actualInvariant}$ --> <img style="transform: translateY(0.1em); background: white;" src="..\svg\KRYbVFEjjJ.svg">
 
-$tkRoot = \sqrt{targetInvariant}$
+<!-- $tkRoot = \sqrt{targetInvariant}$ --> <img style="transform: translateY(0.1em); background: white;" src="..\svg\KqQwRaMods.svg">
 
-
-$ tk = (\frac{x ⋅ tkRoot}{kRoot}) ⋅ (\frac{y ⋅ tkRoot}{kRoot}) $
+<!-- $ tk = (\frac{x ⋅ tkRoot}{kRoot}) ⋅ (\frac{y ⋅ tkRoot}{kRoot}) $ --> <img style="transform: translateY(0.1em); background: white;" src="..\svg\qREUDzQXCw.svg">
 
 But what if we could simulate the slippage/price impact of more liquid pools in order to avoid this issue? The math above states we can solve for a reserve multiplier using the square root of *actualInvariant* and *targetInvariant*. This means we can scale reserves to imitate deeper pools in a predictable manner.
 
