@@ -1,0 +1,32 @@
+{
+    "name": "unipool",
+    "description": "Robust Template for Foundry Projects",
+    "author": "Andreas Bigger <andreas@nascent.xyz>",
+    "license": "AGPL-3.0-only",
+    "version": "1.5.0",
+    "files": [
+        "src/**/*.sol"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/abigger87/unipool.git"
+    },
+    "devDependencies": {
+        "hardhat": "^2.7.0",
+        "prettier": "^2.3.1",
+        "prettier-plugin-solidity": "^1.0.0-beta.13"
+    },
+    "dependencies": {
+        "@openzeppelin/contracts": "^4.5.0",
+        "@rari-capital/solmate": "^6.2.0",
+        "@uniswap/v2-core": "^1.0.1",
+        "@uniswap/v2-periphery": "^1.1.0-beta.0"
+    },
+    "scripts": {
+        "setup": "make clean && make build",
+        "sync": "make update",
+        "test": "make test",
+        "snapshot": "make snapshot",
+        "lint": "make lint"
+    }
+}
