@@ -5,20 +5,6 @@
 
 ## Getting Started
 
-
-The idea here is simple, create a composable Uniswap V2 pair that gives liquidity providers more control over their funds. The largest barrier to entry for new AMMs is lack of liquidity. Maintaining a competitive rate is almost impossible because slippage is high relative to competition. However, what if we could simulate the slippage/price impact of more liquid pools in order to become more competitive?
-
-![xy=k](https://latex.codecogs.com/svg.image?xy=k) equals the constant product market curve where 
-* ![x](https://latex.codecogs.com/svg.image?x) = token x reserves
-* ![y](https://latex.codecogs.com/svg.image?y) = token y reserves
-* ![k](https://latex.codecogs.com/svg.image?k) = constant number
-
-First observe that ![k=c^2](https://latex.codecogs.com/svg.image?k=c^2) for some real number ![c](https://latex.codecogs.com/svg.image?c) so we can rewrite  the constant product market curve as 
-
-![xy=k](https://latex.codecogs.com/svg.image?xy=k)
-
-![xy=c^2](https://latex.codecogs.com/svg.image?xy=c^2)
-
 The idea here is simple, create an experimental AMM with more features at a lower gas cost. In my opinion, the largest barrier-to-entry for emerging AMMs is liquidity, or lack thereof. Offering a competitive rate can prove to be a formidable task when existing markets already have significantly more liquidity. Due to the nature of constant product market makers, the less liquidity pools have the more slippage their users incur while trading. However, what if we could imitate deeper pools, without the underlying liquidity?
 
 
