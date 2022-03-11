@@ -22,6 +22,9 @@ remappings = [
   "@clones=lib/clones-with-immutable-args/src/",
 ]
 
+src = "src"
+out = "out"
+
 libs = ["lib", "node_modules"]
 
 # Extreme Fuzzing CI Profile :P

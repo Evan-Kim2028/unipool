@@ -3,8 +3,8 @@ pragma solidity >=0.8.0;
 
 import {ERC20}                  from "@rari-capital/solmate/src/tokens/ERC20.sol";
 import {ReentrancyGuard}        from "@rari-capital/solmate/src/utils/ReentrancyGuard.sol";
+import {FixedPointMathLib}      from "@rari-capital/solmate/src/utils/FixedPointMathLib.sol";
 import {TransferHelper}         from "@uniswap/lib/contracts/libraries/TransferHelper.sol";
-import {IERC3156FlashLender}    from "@openzeppelin/contracts/interfaces/IERC3156FlashLender.sol";
 import {IERC3156FlashBorrower}  from "@openzeppelin/contracts/interfaces/IERC3156FlashLender.sol";
 
 // This library has been tested, and held the highest degree of coding standards
@@ -116,7 +116,7 @@ abstract contract Unipool is ERC20, ReentrancyGuard {
         uint256 amount1 = balance1 - (_quoteReserves);
         uint256 _totalSupply = totalSupply;
 
-        if (_totalSupply == MINIMUM_LIQUIDITY) liquidity = sqrt(amount0 * amount1) - MINIMUM_LIQUIDITY;
+        if (_totalSupply == MINIMUM_LIQUIDITY) liquidity = FixedPointMathLib.sqrt(amount0 * amount1) - MINIMUM_LIQUIDITY;
         else liquidity = min((amount0 * _totalSupply).uDiv(_baseReserves), (amount1 * _totalSupply).uDiv(_quoteReserves));
         
         // revert if Lp tokens out is equal to zero
@@ -244,21 +244,17 @@ abstract contract Unipool is ERC20, ReentrancyGuard {
     /*                              INTERNAL HELPERS                              */
     /* -------------------------------------------------------------------------- */
 
-    // computes square roots using the babylonian method
-    // https://en.wikipedia.org/wiki/Methods_of_computing_square_roots#Babylonian_method
-    function sqrt(uint256 y) internal pure returns (uint256 z) {
-        if (y > 3) {
-            z = y;
-            uint256 x = y / 2 + 1;
-            while (x < z) {
-                z = x;
-                x = (y / x + x) / 2;
-            }
-        } else if (y != 0) {
-            z = 1;
-        }
-        // else z = 0
-    }
+    // function scaleK(uint256 x, uint256 y, uint256 tk) public pure returns (uint256, uint256) {
+    //     unchecked {
+    //         uint256 rootK = fsqrt(x*y);
+    //         uint256 rootTk = fsqrt(tk);
+
+    //         x *= rootTk / rootK;
+    //         y *= rootTk / rootK;
+
+    //         return (x, y);
+    //     }
+    // }
 
     function min(uint256 x, uint256 y) internal pure returns (uint256 z) {
         z = x < y ? x : y;

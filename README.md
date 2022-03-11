@@ -5,6 +5,7 @@
 
 ## Getting Started
 
+<<<<<<< Updated upstream
 The idea here is simple, create a composable Uniswap V2 pair that gives liquidity providers more control over their funds. The largest barrier to entry for new AMMs is lack of liquidity. Maintaining a competitive rate is almost impossible because slippage is high relative to competition. However, what if we could simulate the slippage/price impact of more liquid pools in order to become more competitive?
 
 ![xy=k](https://latex.codecogs.com/svg.image?xy=k) equals the constant product market curve where 
@@ -18,6 +19,23 @@ First observe that ![k=c^2](https://latex.codecogs.com/svg.image?k=c^2) for some
 
 ![xy=c^2](https://latex.codecogs.com/svg.image?xy=c^2)
 
+=======
+The idea here is simple, create an experimental AMM with more features at a lower gas cost. In my opinion, the largest barrier-to-entry for emerging AMMs is liquidity, or lack thereof. Offering a competitive rate can prove to be a formidable task when existing markets already have significantly more liquidity. Due to the nature of constant product market makers, the less liquidity pools have the more slippage their users incur while trading. However, what if we could imitate deeper pools, without the underlying liquidity?
+
+
+
+Well, we know ![xy=k](https://latex.codecogs.com/svg.image?xy=k) equals the constant product market curve where 
+* ![x](https://latex.codecogs.com/svg.image?x) = token x reserves
+* ![y](https://latex.codecogs.com/svg.image?y) = token y reserves
+* ![k](https://latex.codecogs.com/svg.image?k) = constant/invariant
+
+First observe that ![k=c^2](https://latex.codecogs.com/svg.image?k=c^2) for some real number ![c](https://latex.codecogs.com/svg.image?c) so we can rewrite  the constant product market curve as 
+
+![xy=k](https://latex.codecogs.com/svg.image?xy=k)
+
+![xy=c^2](https://latex.codecogs.com/svg.image?xy=c^2)
+
+>>>>>>> Stashed changes
 ![xy=c^2](https://latex.codecogs.com/svg.image?xy=c^2)
 
 ![xy/c=c](https://latex.codecogs.com/svg.image?\frac{xy}{c}=c)
@@ -42,7 +60,11 @@ Suppose we want to target a specific constant ![k](https://latex.codecogs.com/sv
 
 
 where ![k](https://latex.codecogs.com/svg.image?k) is now a different constant than the one we started with and 
+<<<<<<< Updated upstream
 ![xy=k](https://latex.codecogs.com/svg.image?1/ab) is called the target invariant. ![square](https://latex.codecogs.com/svg.image?\square)
+=======
+![xy=k](https://latex.codecogs.com/svg.image?1/ab) is called the target invariant. ![square](https://latex.codecogs.com/svg.image?\bg{white}\square)
+>>>>>>> Stashed changes
 
 
 ## Features
@@ -60,43 +82,11 @@ lib
 ├─ ds-test — https://github.com/dapphub/ds-test
 ├─ forge-std — https://github.com/brockelmore/forge-std
 ├─ solmate — https://github.com/Rari-Capital/solmate
-├─ clones-with-immutable-args — https://github.com/wighawag/clones-with-immutable-args
 src
 ├─ tests
 │  └─ Unipool.t — "Unipool Tests"
 └─ Unipool — "A Minimal Unipool Contract"
 ```
-
-## Development
-
-**Setup**
-```bash
-make
-# OR #
-make setup
-```
-
-**Building**
-```bash
-make build
-```
-
-**Testing**
-```bash
-make test
-```
-
-**Deployment & Verification**
-
-Inside the [`scripts/`](./scripts/) directory are a few preconfigured scripts that can be used to deploy and verify contracts.
-
-Scripts take inputs from the cli, using silent mode to hide any sensitive information.
-
-NOTE: These scripts are required to be _executable_ meaning they must be made executable by running `chmod +x ./scripts/*`.
-
-NOTE: For local deployment, make sure to run `yarn` or `npm install` before running the `deploy_local.sh` script. Otherwise, hardhat will error due to missing dependencies.
-
-NOTE: these scripts will prompt you for the contract name and deployed addresses (when verifying). Also, they use the `-i` flag on `forge` to ask for your private key for deployment. This uses silent mode which keeps your private key from being printed to the console (and visible in logs).
 
 ### First time with Forge/Foundry?
 
@@ -134,10 +124,6 @@ Using [foundry.toml](./foundry.toml), Foundry is easily configurable.
 
 For a full list of configuration options, see the Foundry [configuration documentation](https://github.com/gakonst/foundry/blob/master/config/README.md#all-options).
 
-### Install DappTools
-
-Install DappTools using their [installation guide](https://github.com/dapphub/dapptools#installation).
-
 
 ## License
 
@@ -148,10 +134,7 @@ Install DappTools using their [installation guide](https://github.com/dapphub/da
 - [foundry](https://github.com/gakonst/foundry)
 - [solmate](https://github.com/Rari-Capital/solmate)
 - [forge-std](https://github.com/brockelmore/forge-std)
-- [clones-with-immutable-args](https://github.com/wighawag/clones-with-immutable-args).
 - [foundry-toolchain](https://github.com/onbjerg/foundry-toolchain) by [onbjerg](https://github.com/onbjerg).
-- [forge-template](https://github.com/FrankieIsLost/forge-template) by [FrankieIsLost](https://github.com/FrankieIsLost).
-- [Georgios Konstantopoulos](https://github.com/gakonst) for [forge-template](https://github.com/gakonst/forge-template) resource.
 
 ## Disclaimer
 
