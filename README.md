@@ -5,16 +5,44 @@
 
 ## Getting Started
 
-The idea here is simple, create a composable Uniswap V2 pair that gives liquidity providers more control over their funds. The largest barrier to entry for new AMMs is lack of liquidity. Maintaining a competitive rate is almost impossible because slippage is high relative to competition. 
+The idea here is simple, create a composable Uniswap V2 pair that gives liquidity providers more control over their funds. The largest barrier to entry for new AMMs is lack of liquidity. Maintaining a competitive rate is almost impossible because slippage is high relative to competition. However, what if we could simulate the slippage/price impact of more liquid pools in order to become more competitive?
 
-<!-- $kRoot = \sqrt{actualInvariant}$ --> <img style="transform: translateY(0.1em); background: white;" src="..\svg\KRYbVFEjjJ.svg">
+![xy=k](https://latex.codecogs.com/svg.image?xy=k) equals the constant product market curve where 
+* ![x](https://latex.codecogs.com/svg.image?x) = token x reserves
+* ![y](https://latex.codecogs.com/svg.image?y) = token y reserves
+* ![k](https://latex.codecogs.com/svg.image?k) = constant number
 
-<!-- $tkRoot = \sqrt{targetInvariant}$ --> <img style="transform: translateY(0.1em); background: white;" src="..\svg\KqQwRaMods.svg">
+First observe that ![k=c^2](https://latex.codecogs.com/svg.image?k=c^2) for some real number ![c](https://latex.codecogs.com/svg.image?c) so we can rewrite  the constant product market curve as 
 
-<!-- $ tk = (\frac{x ⋅ tkRoot}{kRoot}) ⋅ (\frac{y ⋅ tkRoot}{kRoot}) $ --> <img style="transform: translateY(0.1em); background: white;" src="..\svg\qREUDzQXCw.svg">
+![xy=k](https://latex.codecogs.com/svg.image?xy=k)
 
-But what if we could simulate the slippage/price impact of more liquid pools in order to avoid this issue? The math above states we can solve for a reserve multiplier using the square root of *actualInvariant* and *targetInvariant*. This means we can scale reserves to imitate deeper pools in a predictable manner.
+![xy=c^2](https://latex.codecogs.com/svg.image?xy=c^2)
 
+![xy=c^2](https://latex.codecogs.com/svg.image?xy=c^2)
+
+![xy/c=c](https://latex.codecogs.com/svg.image?\frac{xy}{c}=c)
+
+![1/c*xy=c](https://latex.codecogs.com/svg.image?\frac{1}{c}xy=c)
+
+
+where ![\frac{1}{c}](https://latex.codecogs.com/svg.image?1/c) is the invariant of the constant product market curve. 
+
+Suppose we want to target a specific constant ![k](https://latex.codecogs.com/svg.image?k) which directly allows us to control price impact on the pool. Observe again that we could let ![k=c^2](https://latex.codecogs.com/svg.image?k=c^2) for some real number ![c](https://latex.codecogs.com/svg.image?c) such that ![c=ab](https://latex.codecogs.com/svg.image?c=ab) for ![a!=b](https://latex.codecogs.com/svg.image?a&space;\neq&space;b). By controlling the values of ![a](https://latex.codecogs.com/svg.image?a) and ![b](https://latex.codecogs.com/svg.image?b), we can construct any ![k](https://latex.codecogs.com/svg.image?k) for any $xy$ pool. Note that if ![a=b](https://latex.codecogs.com/svg.image?a=b), then we get the traditional constant product market curve. Working backwards from the above equation and replacing ![c](https://latex.codecogs.com/svg.image?c) with ![a,b](https://latex.codecogs.com/svg.image?a,b), we get
+
+
+
+![(1/ab)xy=ab](https://latex.codecogs.com/svg.image?\bg{white}\frac{1}{ab}xy=ab&space;)
+
+![(xy/ab)=ab](https://latex.codecogs.com/svg.image?\frac{xy}{ab}=ab)
+
+![xy=(ab)^2=c^2](https://latex.codecogs.com/svg.image?xy=(ab)^2=c^2)
+
+![xy=k](https://latex.codecogs.com/svg.image?xy=k)
+
+
+
+where ![k](https://latex.codecogs.com/svg.image?k) is now a different constant than the one we started with and 
+![xy=k](https://latex.codecogs.com/svg.image?1/ab) is called the target invariant. ![square](https://latex.codecogs.com/svg.image?\square)
 
 
 ## Features
@@ -117,7 +145,6 @@ Install DappTools using their [installation guide](https://github.com/dapphub/da
 
 ## Acknowledgements
 
-- [unipool](https://github.com/abigger87/unipool)
 - [foundry](https://github.com/gakonst/foundry)
 - [solmate](https://github.com/Rari-Capital/solmate)
 - [forge-std](https://github.com/brockelmore/forge-std)
