@@ -59,11 +59,11 @@ Suppose we want to target a specific constant ![k](https://latex.codecogs.com/sv
 
 
 where ![k](https://latex.codecogs.com/svg.image?k) is now a different constant than the one we started with and 
-<<<<<<< Updated upstream
+
 ![xy=k](https://latex.codecogs.com/svg.image?1/ab) is called the target invariant. ![square](https://latex.codecogs.com/svg.image?\square)
-=======
+
 ![xy=k](https://latex.codecogs.com/svg.image?1/ab) is called the target invariant. ![square](https://latex.codecogs.com/svg.image?\bg{white}\square)
->>>>>>> Stashed changes
+
 
 
 ## Features
