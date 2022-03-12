@@ -7,16 +7,8 @@ import {FixedPointMathLib}      from "@rari-capital/solmate/src/utils/FixedPoint
 import {TransferHelper}         from "@uniswap/lib/contracts/libraries/TransferHelper.sol";
 import {IERC3156FlashBorrower}  from "@openzeppelin/contracts/interfaces/IERC3156FlashLender.sol";
 
-// This library has been tested, and held the highest degree of coding standards
-library UncheckedMathLib {
-    function uAdd(uint256 x, uint256 y) internal pure returns (uint256 z) {assembly {z := add(x, y)}}
-    function uSub(uint256 x, uint256 y) internal pure returns (uint256 z) {assembly {z := sub(x, y)}}
-    function uMul(uint256 x, uint256 y) internal pure returns (uint256 z) {assembly {z := mul(x, y)}}
-    function uDiv(uint256 x, uint256 y) internal pure returns (uint256 z) {assembly {z := div(x, y)}}
-    function uFrac(uint256 x, uint256 y, uint256 denom) internal pure returns (uint256 z) {assembly {z := div(mul(x, y), denom)}}
-}
+import {UncheckedMathLib}       from "./libraries/UncheckedMathLib.sol";
 
-// TODO CHECK REQUIRE STATEMENTS
 contract Unipool is ERC20("", "", 18), ReentrancyGuard {
 
     using UncheckedMathLib for uint256;
@@ -273,10 +265,8 @@ contract Unipool is ERC20("", "", 18), ReentrancyGuard {
     //     unchecked {
     //         uint256 rootK = fsqrt(x*y);
     //         uint256 rootTk = fsqrt(tk);
-
     //         x *= rootTk / rootK;
     //         y *= rootTk / rootK;
-
     //         return (x, y);
     //     }
     // }
