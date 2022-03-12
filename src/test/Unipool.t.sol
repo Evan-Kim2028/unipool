@@ -29,7 +29,7 @@ contract UnipoolTest is DSTest {
         quoteToken = new MockContract("Quote Token", "QUOTE");
         // Pair needs initialized after deployment
         pair = new Unipool();
-        pair.initialize(address(baseToken), address(quoteToken));
+        pair.initialize(address(baseToken), address(quoteToken), 30, 30);
         baseToken.mint(address(this), 1e27);
         quoteToken.mint(address(this), 1e27);
         baseToken.approve(address(pair), type(uint256).max);
