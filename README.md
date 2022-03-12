@@ -5,7 +5,7 @@
 
 ## Getting Started
 
-The idea here is simple, create an experimental AMM with more features at a lower gas cost. In my opinion, the largest barrier-to-entry for emerging AMMs is liquidity, or lack thereof. Offering a competitive rate can prove to be a formidable task when existing markets already have significantly more liquidity. Due to the nature of constant product market makers, the less liquidity pools have the more slippage their users incur while trading. However, what if we could imitate deeper pools, without the underlying liquidity?
+The idea here is simple, create an experimental AMM with more features at a lower gas cost. In my opinion, the largest barrier-to-entry for emerging AMMs is liquidity, or lack thereof. Due to the nature of constant product market makers, the less liquidity pools have the more slippage their users incur while trading. However, what if we could imitate deeper pools, without the underlying liquidity?
 
 
 
@@ -20,8 +20,6 @@ First observe that ![k=c^2](https://latex.codecogs.com/svg.image?k=c^2) for some
 
 ![xy=c^2](https://latex.codecogs.com/svg.image?xy=c^2)
 
-
-![xy=c^2](https://latex.codecogs.com/svg.image?xy=c^2)
 
 ![xy/c=c](https://latex.codecogs.com/svg.image?\frac{xy}{c}=c)
 
@@ -48,67 +46,28 @@ where ![k](https://latex.codecogs.com/svg.image?k) is now a different constant t
 
 ![xy=k](https://latex.codecogs.com/svg.image?1/ab) is called the target invariant. ![square](https://latex.codecogs.com/svg.image?\square)
 
-![xy=k](https://latex.codecogs.com/svg.image?1/ab) is called the target invariant. ![square](https://latex.codecogs.com/svg.image?\bg{white}\square)
-
 
 
 ## Features
 
-* ✅Removed Uniswap 0.05% mint fee
-* ✅Added Swap fee customization
-* ✅Added ERC3156 Flash-loan support
-* ✅Optional TWAP support
-* ♻️Target invariant support
+* ♻️Invariant imitation
+* ✅Removed Uniswap LP fee
+* ✅Added swap fee customization
+* ✅Added ERC3156 Flash-loan support (to save gas)
+* ✅Optional TWAP support (to save gas)
+
 
 ## Blueprint
 
 ```ml
 lib
 ├─ ds-test — https://github.com/dapphub/ds-test
-├─ forge-std — https://github.com/brockelmore/forge-std
 ├─ solmate — https://github.com/Rari-Capital/solmate
 src
 ├─ tests
 │  └─ Unipool.t — "Unipool Tests"
 └─ Unipool — "A Minimal Unipool Contract"
 ```
-
-### First time with Forge/Foundry?
-
-See the official Foundry installation [instructions](https://github.com/gakonst/foundry/blob/master/README.md#installation).
-
-Then, install the [foundry](https://github.com/gakonst/foundry) toolchain installer (`foundryup`) with:
-```bash
-curl -L https://foundry.paradigm.xyz | bash
-```
-
-Now that you've installed the `foundryup` binary,
-anytime you need to get the latest `forge` or `cast` binaries,
-you can run `foundryup`.
-
-So, simply execute:
-```bash
-foundryup
-```
-
-🎉 Foundry is installed! 🎉
-
-### Writing Tests with Foundry
-
-With [Foundry](https://gakonst.xyz), tests are written in Solidity! 🥳
-
-Create a test file for your contract in the `src/tests/` directory.
-
-For example, [`src/Greeter.sol`](./src/Greeter.sol) has its test file defined in [`./src/tests/Greeter.t.sol`](./src/tests/Greeter.t.sol).
-
-To learn more about writing tests in Solidity for Foundry and Dapptools, reference Rari Capital's [solmate](https://github.com/Rari-Capital/solmate/tree/main/src/test) repository largely created by [@transmissions11](https://twitter.com/transmissions11).
-
-### Configure Foundry
-
-Using [foundry.toml](./foundry.toml), Foundry is easily configurable.
-
-For a full list of configuration options, see the Foundry [configuration documentation](https://github.com/gakonst/foundry/blob/master/config/README.md#all-options).
-
 
 ## License
 
