@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: WTFPL
+// SPDX-License-Identifier: GPLv3
 pragma solidity >=0.8.0;
 
 import {ERC20}                  from "@rari-capital/solmate/src/tokens/ERC20.sol";
